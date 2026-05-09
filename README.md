@@ -152,18 +152,6 @@ docker push <ACCOUNT_ID>.dkr.ecr.eu-west-1.amazonaws.com/proyecto7-app:latest
 
 ---
 
-## ECS Redeployment
-
-```bash
-aws ecs update-service \
-  --cluster proyecto7-cluster \
-  --service proyecto7-app-service \
-  --force-new-deployment \
-  --region eu-west-1
-```
-
----
-
 ## CloudWatch Logs
 
 Application logs are available in:
