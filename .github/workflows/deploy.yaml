@@ -25,11 +25,11 @@ jobs:
 
       - name: Build and push Docker image
         run: |
+          ECR_URI=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.eu-west-1.amazonaws.com/proyecto7-app
+
           docker build -t proyecto7-app ./app
-          docker tag proyecto7-app:latest \
-            ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.eu-west-1.amazonaws.com/proyecto7-app:latest
-          docker push \
-            ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.eu-west-1.amazonaws.com/proyecto7-app:latest
+          docker tag proyecto7-app:latest $ECR_URI:latest
+          docker push $ECR_URI:latest
 
       - name: Force ECS deployment
         run: |
